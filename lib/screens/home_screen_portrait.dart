@@ -33,7 +33,8 @@ class _HomeScreenPortraitState extends State<HomeScreenPortrait> {
                 borderRadius: BorderRadius.circular(35),
               ),
               child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: Center(
                       child: Expanded(
                     child: SingleChildScrollView(

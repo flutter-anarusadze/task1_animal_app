@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:task_1_animal_app/data/model/animal.dart';
 import 'package:task_1_animal_app/data/model/animal_list.dart';
 
-
 class HomeScreenLandscape extends StatefulWidget {
   const HomeScreenLandscape({Key? key, required this.animalList})
       : super(key: key);
@@ -15,7 +14,6 @@ class HomeScreenLandscape extends StatefulWidget {
 }
 
 class _HomeScreenLandscapeState extends State<HomeScreenLandscape> {
-
   var animalImageUrl = animalList[0].imageUrl;
   var animalDescription = animalList[0].description;
 
@@ -23,42 +21,43 @@ class _HomeScreenLandscapeState extends State<HomeScreenLandscape> {
   Widget build(BuildContext context) {
     final halfScreen = MediaQuery.of(context).size.width / 2;
 
-    return Row(
-        children: [
-      Container(
-        width: halfScreen,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.network(animalImageUrl, width: 250, height: 250),
-            Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff6fb0f6),
-                    border: Border.all(color: const Color(0xff6fb0f6)),
-                    borderRadius: BorderRadius.circular(35),
-                  ),
-                  child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
-                      child: Center(
-                          child: Expanded(
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          child: Text(
-                            animalDescription,
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 16),
-                          ),
-                        ),
-                      ))),
-                ))
-          ],
+    return Scaffold(
+        body: Center(
+            child: Row(children: [
+      Expanded(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            width: halfScreen,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.network(animalImageUrl, width: 250, height: 250),
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Container(
+                      height: 200,
+                      decoration: BoxDecoration(
+                        color: const Color(0xff6fb0f6),
+                        border: Border.all(color: const Color(0xff6fb0f6)),
+                        borderRadius: BorderRadius.circular(35),
+                      ),
+                      child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          child: Center(
+                              child: Text(
+                                animalDescription,
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ))),
+                    ))
+              ],
+            ),
+          ),
         ),
       ),
-      Container(
+      SizedBox(
         width: halfScreen,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -68,7 +67,7 @@ class _HomeScreenLandscapeState extends State<HomeScreenLandscape> {
           ],
         ),
       )
-    ]);
+    ])));
   }
 
   dynamic addRow(List<Widget> buttons) {
